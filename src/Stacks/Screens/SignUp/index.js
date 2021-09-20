@@ -1,0 +1,10 @@
+import React, { Component} from 'react';
+import {Container} from './styles';
+import { Text } from 'react-native';
+export default () => {
+    return(
+<Container>
+    <Text>SignUp</Text>
+</Container>
+    );
+}
