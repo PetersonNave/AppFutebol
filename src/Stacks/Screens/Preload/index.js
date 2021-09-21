@@ -1,10 +1,38 @@
-import React, { Component} from 'react';
-import {Container} from './styles';
-import { Text } from 'react-native';
+import React, { Component, useEffect} from 'react';
+import {Container, LoadingIcon} from './styles';
+import { Text, AsyncStorage } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
+
+// import PlayerLogo from '../../../assets/icoFootPlayer.svg';
+
 export default () => {
+const navigation = useNavigation();
+    useEffect(()=>{
+
+        const checkToken = async () => {
+        const token = await AsyncStorage.getItem('token');
+        
+        if(token){
+        //validar token
+        }else{
+          navigation.navigate('SignIn')
+        }
+        
+        }
+        checkToken();
+        
+        }, []);
+
     return(
-<Container>
-    <Text>Preload</Text>
-</Container>
+ 
+
+    <Container>
+   
+    {/* <PlayerLogo width="100%" height="160"/> */}
+    <Text font-size="100">QUERO FUT</Text>
+    <LoadingIcon color="#FFFFFF" size="large"/>
+
+
+    </Container>
     );
 }
