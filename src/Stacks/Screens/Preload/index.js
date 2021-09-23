@@ -3,6 +3,8 @@ import {Container, LoadingIcon} from './styles';
 import { Text, AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
+import Logo from '../../../assets/icoFootPlayer.svg'
+
 // import PlayerLogo from '../../../assets/icoFootPlayer.svg';
 
 export default () => {
@@ -15,7 +17,7 @@ const navigation = useNavigation();
         if(token){
         //validar token
         }else{
-          navigation.navigate('SignIn')
+        //  navigation.navigate('SignIn')
         }
         
         }
@@ -29,7 +31,8 @@ const navigation = useNavigation();
     <Container>
    
     {/* <PlayerLogo width="100%" height="160"/> */}
-    <Text font-size="100">QUERO FUT</Text>
+
+    <Logo weight="100%" height="150px" fill="#FFFFFF"/>
     <LoadingIcon color="#FFFFFF" size="large"/>
 
 
