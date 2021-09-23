@@ -28,7 +28,7 @@ export default({placeholder, IconSVG, value, onChangeText, password}) => {
 
 return(
 <InputArea>
-<IconSVG weight="24px" height="24px" fill="#FFFFFF"/>
+<IconSVG  weight="24px" height="24px"  fill="#FFFFFF"/>
  <Input 
     placeholder={placeholder}
     placeholderTextColor="#FFFFFF"
