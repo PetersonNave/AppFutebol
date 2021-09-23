@@ -17,7 +17,8 @@ const navigation = useNavigation();
         if(token){
         //validar token
         }else{
-        //  navigation.navigate('SignIn')
+          
+          navigation.navigate('SignIn')
         }
         
         }

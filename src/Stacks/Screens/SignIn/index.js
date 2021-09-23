@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component, useState} from 'react';
 import {
     Container,
     InputArea,
@@ -10,16 +10,39 @@ import {
 } from './styles';
 import { Text } from 'react-native';
 import SignInput from '../../../components/SignInput';
+import Logo from '../../../assets/icoFootPlayer.svg'
+
+import LockIco from '../../../assets/lock.svg'
+import EmailIco from '../../../assets/email.svg'
+
 
 export default () => {
+
+const [emailField, setEmailField] = useState('');
+const [passwordField, setPasswordField] = useState('');
+
+
     return(
 <Container>
     
+<Logo weight="100%" height="150px" fill="#FFFFFF"/>
 
-<InputArea>
+<InputArea >
    
-<SignInput placeholder="Digite seu e-mail"/>
-<SignInput placeholder="Digite sua senha"/>
+<SignInput 
+placeholder="Digite seu e-mail"
+IconSVG={LockIco}
+value={emailField}
+onChangeText={t=>setEmailField(t)}
+/>
+
+<SignInput 
+placeholder="Digite sua senha"
+IconSVG={EmailIco}
+value={passwordField}
+onChangeText={t=>setPasswordField(t)}
+password={true}
+/>
 
     <CustomButton>
         <CustomButtonText>LOGIN</CustomButtonText>
