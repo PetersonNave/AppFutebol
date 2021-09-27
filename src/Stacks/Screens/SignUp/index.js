@@ -40,7 +40,7 @@ SignInButtonClick= async () =>{
         if(res.token){
             
             await AsyncStorage.setItem('token', res.token);
-
+            alert("Cadastro Realizado com Sucesso!")
 userDispatch({
 
  type: 'SET_AVATAR',
@@ -48,7 +48,7 @@ userDispatch({
 
 });
 navigation.reset({
-    routes:[{name:'MainTab'}]
+    routes:[{name:'SignIn'}]
 });
  
 
