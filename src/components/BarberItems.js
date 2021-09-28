@@ -1,7 +1,8 @@
 import React, { Component} from 'react';
 import Stars from '../components/Stars'
 import styled from 'styled-components';
-
+import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Area = styled.TouchableOpacity`
     background-color: #FFFFFF;
@@ -50,18 +51,24 @@ const SeeProfileButtonText = styled.Text`
 `;
 
 
-export default ({data}) =>{
+export default ({data, list}) =>{
 
-    
+const teste = async () => {
+ navigation.navigate('RoomDetails', {data, list});
+  
+
+}
+
+const navigation = useNavigation();    
 
 return(
-<Area>
+<Area onPress={()=>teste()}>
     <Avatar source={data.avatar}/> 
 
-   <InfoArea>
+   <InfoArea  >
        <UserName>{data.name}</UserName>
     <Stars stars={data.stars}/>
-    <SeeProfileButton>
+    <SeeProfileButton >
         <SeeProfileButtonText>Ver jogos</SeeProfileButtonText>
     </SeeProfileButton>
 

@@ -22,8 +22,8 @@ import { useNavigation } from '@react-navigation/core';
 import Api from '../../../Api'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {UserContext} from '../../../contexts/UserContext';
-import SearchIcon from '../../../assets/search.svg'
-import MyLocationArea from '../../../assets/my_location.svg'
+import SearchIcon from '../../../assets/search.svg';
+import MyLocationArea from '../../../assets/my_location.svg';
 
 
 import * as Location from 'expo-location';
@@ -59,7 +59,7 @@ export default () => {
         }     else{alert("Erro ao buscar salas, verifique sua conexão com a internet e tente novamente")}
     } 
   
-    
+  
 
     const navigation = useNavigation('');
 
@@ -95,9 +95,9 @@ return(
 
         {loading && <LoadingIcon size="large" color="#FFFFFF"/>}
        
-        <ListArea>
+        <ListArea >
             {list.map((item, k)=>(
-                <BarberItem key={k} data={item}/>
+                <BarberItem key={k} data={item} list={list} />
 
             ))}
         </ListArea>

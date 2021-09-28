@@ -6,6 +6,7 @@ import Appointments from './Screens/Appointments';
 import Profile from './Screens/Profile';
 import Favorites from './Screens/Favorites';
 import CustomTabBar from '../components/CustomTabBar';
+import RoomDetails from '../Stacks/Screens/RoomDetails'
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +24,7 @@ export default ()=>(
    <Tab.Screen name="Appointments" component={Appointments}/>
    <Tab.Screen name="Favorites" component={Favorites}/>
    <Tab.Screen name="Profile" component={Profile}/>
+   <Tab.Screen name="RoomDetails" component={RoomDetails}/>
 
 
 </Tab.Navigator>
