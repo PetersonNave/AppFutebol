@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import Stars from "../../../components/Stars";
-import BarberItem from '../../../components/BarberItems'
+import RoomDetails from '../../../components/RoomDetails'
 import { useState } from "react";
 
 const NameArea = styled.View`
@@ -64,6 +64,25 @@ const SeeProfileButton = styled.View`
 
 
 `;
+const CreateRoomButton = styled.TouchableOpacity`
+    border: 0.5px solid #4EBE70;
+    height: 67px;
+    border-radius: 10px;
+    background-color: #08E659;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -10px;
+
+`;
+
+const CreateRoomButtonText = styled.Text`
+    font-size: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+
+
+`;
 
 const SeeRoomsText = styled.Text`
     font-size: 18px;
@@ -120,14 +139,16 @@ return(
 
 <ListArea >
             {list.map((item, k)=>(
-                <BarberItem key={k} data={item} />
+                <RoomDetails key={k} data={item} />
 
             ))}
         </ListArea>
 
 
 </Scroller>
-
+<CreateRoomButton >
+        <CreateRoomButtonText>Criar uma Sala</CreateRoomButtonText>
+    </CreateRoomButton>
 
 </Area>
 </Container>

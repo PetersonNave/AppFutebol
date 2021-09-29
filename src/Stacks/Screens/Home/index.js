@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState, useContext} from 'react';
 import { Alert, Platform } from 'react-native';
-import BarberItem from '../../../components/BarberItems'
+import RoomItems from '../../../components/RoomItems'
 import {
     Container,
     Scroller,
@@ -97,7 +97,7 @@ return(
        
         <ListArea >
             {list.map((item, k)=>(
-                <BarberItem key={k} data={item} list={list} />
+                <RoomItems key={k} data={item} list={list} />
 
             ))}
         </ListArea>

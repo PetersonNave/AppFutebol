@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import Stars from '../components/Stars'
+import Stars from './Stars'
 import styled from 'styled-components';
 import { useNavigation } from '@react-navigation/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -26,6 +26,7 @@ const Avatar = styled.Image`
 const InfoArea = styled.View`
     margin-left: 20px;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const UserName = styled.Text`
