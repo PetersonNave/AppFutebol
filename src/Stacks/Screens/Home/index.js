@@ -34,6 +34,8 @@ export default () => {
     const [coords, setCoords] = useState(null);
     const [loading, setLoading] = useState(false);
     const [list, setList] = useState([]);
+
+    
     const handleLocationFinder = async () =>{
         setCoords(null);
        
@@ -53,13 +55,14 @@ export default () => {
         
         if(res.loc == "Recife") {
             setLocationText(res.loc)
+            console.log(res.data)
             setList(res.data);
             setLoading(false);
 
         }     else{alert("Erro ao buscar salas, verifique sua conexão com a internet e tente novamente")}
     } 
   
-  
+  //
 
     const navigation = useNavigation('');
 

@@ -55,9 +55,9 @@ const SeeProfileButtonText = styled.Text`
 export default ({data, list}) =>{
 
 const teste = async () => {
- navigation.navigate('RoomDetails', {data, list});
-  
-
+ navigation.navigate('RoomDetails', {data, list})
+     
+    
 }
 
 const navigation = useNavigation();    

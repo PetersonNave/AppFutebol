@@ -14,6 +14,7 @@ export default ()=>(
 
 <Tab.Navigator tabBar={props=><CustomTabBar {... props}/>}
  initialRouteName="Home"
+ unmountInactiveRoutes= {true}
  screenOptions={{
      headerShown: false
 

@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React, { Component,useState, useEffect  } from "react";
 import styled from "styled-components";
 import { Container } from "./styles";
-import { Text } from "react-native";
+import { Text, BackHandler, Image } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import Stars from "../../../components/Stars";
 import RoomDetails from '../../../components/RoomDetails'
-import { useState } from "react";
+import Api from '../../../Api';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NameArea = styled.View`
     background-color: #FFFFFF;
@@ -101,22 +102,68 @@ export const ListArea = styled.View`
     margin-bottom: 30px;
 
 `;
+export const BackgroundImage = styled.Image`
+
+width: 100%;
+height: 300px;
+margin-bottom: -50px;
+opacity: 0.5;
+`;
 
 
 
 
 export default({route})=> {
+    const [loading, setLoading] = useState(false);
+    const [TList, setTList] = useState([]);
+    navigation = useNavigation('');
+    useEffect(()=>{
+
+        ListDetailsMap();
+       
+
+        const backAction = () => {
+            navigation.reset({
+                routes:[{name:'Home'}]
+            
+            });
+            return true;
+          };
+
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            backAction
+          );
+          return () => backHandler.remove();
+    }, []);
 
     navigation = useNavigation();
-console.log(route);
-const list =route.params?.list;
+     
+    let List = [];
+    const ListDetailsMap= async () =>{
+
+    
+    let res = await Api.getDetails(route.params?.data.id);
+   
+    List = res;
+    setTList(List);
+    setLoading(true);
+    return;
+}
+if(loading){
+    console.log(TList);
+
+}
+
+
+
 
 return(
  
  
 
 <Container>
-
+<BackgroundImage source={route.params?.data.avatar}/>
 <Area>
 <NameArea>
 <Avatar source={route.params?.data.avatar}/> 
@@ -136,14 +183,15 @@ return(
 <SeeRoomsText>Salas disponíveis</SeeRoomsText>
 
 <Scroller>
-
+{loading && 
 <ListArea >
-            {list.map((item, k)=>(
+
+            {TList.map((item, k)=>(
                 <RoomDetails key={k} data={item} />
 
             ))}
         </ListArea>
-
+            }
 
 </Scroller>
 <CreateRoomButton >

@@ -5,7 +5,7 @@ import { ReactSVG  } from 'react-native-svg';
 export const Container = styled.SafeAreaView`
 
 flex:1;
-background-color: #FF00FF;
+background-color: #7D7D7D;
 
 justify-content: flex-end;
 
